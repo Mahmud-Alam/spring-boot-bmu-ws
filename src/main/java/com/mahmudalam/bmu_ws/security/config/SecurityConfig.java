@@ -54,6 +54,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(req -> req
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/bmu/api/v1/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/bmu/api/v1/collaborations/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/bmu/api/v1/images/**").permitAll()
+                        .requestMatchers("/upload/img/**").permitAll()
+
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                         .anyRequest().authenticated())
 // using JWT            .httpBasic(Customizer.withDefaults())
