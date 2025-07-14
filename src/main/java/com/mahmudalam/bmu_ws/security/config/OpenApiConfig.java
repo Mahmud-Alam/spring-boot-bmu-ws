@@ -1,18 +1,14 @@
 package com.mahmudalam.bmu_ws.security.config;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@OpenAPIDefinition(
-        info = @Info(title = "bmu", version = "v1")
-)
 public class OpenApiConfig {
 
     @Bean
@@ -20,7 +16,7 @@ public class OpenApiConfig {
         final String securitySchemeName = "bearerAuth";
 
         return new OpenAPI()
-                .info(new io.swagger.v3.oas.models.info.Info().title("BMU API").version("1.0"))
+                .info(new Info().title("BMU API").version("v1.0"))
                 .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
                 .components(new Components()
                         .addSecuritySchemes(securitySchemeName,
