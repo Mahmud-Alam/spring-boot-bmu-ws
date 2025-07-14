@@ -42,6 +42,7 @@ public class Department {
         this.updatedAt = LocalDateTime.now();
     }
 
+    @PreUpdate
     protected void onUpdate() {
         this.updatedAt = LocalDateTime.now();
     }
